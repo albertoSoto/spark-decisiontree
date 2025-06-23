@@ -1,6 +1,6 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
-import { reactRouter } from '@react-router/dev/vite';
+import { reactRouter } from '@react-router/dev/dist/vite';
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -13,7 +13,7 @@ export default defineConfig(() => ({
     port: 4300,
     host: 'localhost',
   },
-  plugins: [!process.env.VITEST && reactRouter()],
+  plugins: [process.env.VITEST ? null : reactRouter()].filter(Boolean),
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
