@@ -9,7 +9,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>decissiontree-backend</artifactId>
+	<artifactId>decisiontree-backend</artifactId>
 	<name>decissiontree-backend</name>
 	<description>Backend module for Spring Boot with Spark Decision Tree</description>
 
@@ -37,7 +37,7 @@
 		</dependency>
 <!--		<dependency>-->
 <!--			<groupId>es.albertosoto</groupId>-->
-<!--			<artifactId>decissiontree-frontend</artifactId>-->
+<!--			<artifactId>decisiontree-frontend</artifactId>-->
 <!--			<version>${project.version}</version>-->
 <!--			<type>pom</type>-->
 <!--		</dependency>-->

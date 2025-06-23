@@ -17,8 +17,8 @@
 	<description>Parent project for Spring Boot with Spark Decision Tree</description>
 
 	<modules>
-		<module>decissiontree-backend</module>
-		<module>decissiontree-frontend</module>
+		<module>decisiontree-backend</module>
+		<module>decisiontree-frontend</module>
 	</modules>
 
 	<properties>

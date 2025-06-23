@@ -9,8 +9,8 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>decissiontree-frontend</artifactId>
-	<name>decissiontree-frontend</name>
+	<artifactId>decisiontree-frontend</artifactId>
+	<name>decisiontree-frontend</name>
 	<description>Nx Frontend module for Spark Decision Tree</description>
 	<packaging>pom</packaging>
 

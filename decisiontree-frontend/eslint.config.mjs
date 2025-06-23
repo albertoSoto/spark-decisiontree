@@ -7,8 +7,6 @@ export default [
   {
     ignores: [
       '**/dist',
-      '**/build',
-      '**/.react-router',
       '**/vite.config.*.timestamp*',
       '**/vitest.config.*.timestamp*',
     ],
