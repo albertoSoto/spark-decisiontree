@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>decisiontree-backend</artifactId>
-	<name>decissiontree-backend</name>
+	<name>decisiontree-backend</name>
 	<description>Backend module for Spring Boot with Spark Decision Tree</description>
 
 	<dependencies>
