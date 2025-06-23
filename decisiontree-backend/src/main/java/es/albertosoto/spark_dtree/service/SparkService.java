@@ -49,7 +49,7 @@ public class SparkService {
             Dataset<Row> data = sparkSession.read()
                     .option("header", "true")
                     .option("inferSchema", "true")
-                    .csv("src/main/resources/data/iris.csv");
+                    .csv(getClass().getClassLoader().getResource("data/iris.csv").getPath());
 
             // Split the data into training and test sets
             Dataset<Row>[] splits = data.randomSplit(new double[]{0.7, 0.3}, 1234L);
