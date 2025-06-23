@@ -1,0 +1,6 @@
+/decissiontree-frontend/node
+/decissiontree-backend/target
+/decissiontree-frontend/node_modules
+/decissiontree-frontend/node/
+/decissiontree-frontend/node_modules/
+/decissiontree-frontend/.nx/cache/
