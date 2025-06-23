@@ -141,4 +141,37 @@ public class DecisionTreeController {
         Map<String, Object> info = sparkService.getModelInfo();
         return ResponseEntity.ok(info);
     }
+
+    /**
+     * Get the decision tree structure for frontend visualization
+     * @return Tree structure in a format suitable for frontend rendering
+     */
+    @Operation(
+        summary = "Get tree structure",
+        description = "Returns the decision tree structure in a format suitable for frontend visualization"
+    )
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200",
+            description = "Tree structure retrieved successfully",
+            content = @Content(mediaType = "application/json")
+        ),
+        @ApiResponse(
+            responseCode = "404",
+            description = "Model not trained yet",
+            content = @Content(mediaType = "application/json")
+        )
+    })
+    @GetMapping("/tree-structure")
+    public ResponseEntity<Map<String, Object>> getTreeStructure() {
+        Map<String, Object> result = sparkService.getTreeStructure();
+        
+        if ("not_trained".equals(result.get("status"))) {
+            return ResponseEntity.status(404).body(result);
+        } else if ("error".equals(result.get("status"))) {
+            return ResponseEntity.status(500).body(result);
+        }
+        
+        return ResponseEntity.ok(result);
+    }
 }
