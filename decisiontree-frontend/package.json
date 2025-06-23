@@ -2,7 +2,10 @@
   "name": "@decisiontree-frontend/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx run @decisiontree-frontend/decisiontree-frontend:dev",
+    "build": "nx run @decisiontree-frontend/decisiontree-frontend:build"
+  },
   "private": true,
   "dependencies": {
     "axios": "^1.6.7",
