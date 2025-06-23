@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark Decision Tree Service</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .link-card {
+            flex: 1;
+            min-width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Spark Decision Tree Service</h1>
+        <p>Welcome to the Apache Spark Decision Tree API service</p>
+    </div>
+
+    <div class="card">
+        <h2>Service Overview</h2>
+        <p>This service provides machine learning capabilities using Apache Spark's Decision Tree implementation. 
+        It allows you to train models, make predictions, and access model information through a REST API.</p>
+    </div>
+
+    <h2>Quick Links</h2>
+    <div class="links">
+        <div class="link-card">
+            <h3>API Documentation</h3>
+            <p>Explore and test the API endpoints</p>
+            <a href="/swagger-ui.html" target="_blank">Open Swagger UI</a>
+        </div>
+        
+        <div class="link-card">
+            <h3>API Docs (JSON)</h3>
+            <p>Raw API documentation in JSON format</p>
+            <a href="/api-docs" target="_blank">View API Docs</a>
+        </div>
+        
+        <div class="link-card">
+            <h3>Actuator</h3>
+            <p>Monitor and manage application</p>
+            <a href="/actuator" target="_blank">Open Actuator</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>API Endpoints</h2>
+        <ul>
+            <li><strong>GET /api/dtree/info</strong> - Get service information</li>
+            <li><strong>POST /api/dtree/train</strong> - Train a decision tree model</li>
+            <li><strong>POST /api/dtree/predict</strong> - Make predictions using the trained model</li>
+            <li><strong>GET /api/dtree/model</strong> - Get model information</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>Spark Decision Tree Service &copy; 2025</p>
+    </div>
+</body>
+</html>

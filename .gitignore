@@ -38,3 +38,6 @@
 /decisiontree-backend/target/test-classes/es/albertosoto/spark_dtree/service/SparkServiceIntegrationTest.class
 /decisiontree-backend/target/test-classes/es/albertosoto/spark_dtree/service/SparkServiceTest.class
 /decisiontree-backend/target/test-classes/es/albertosoto/spark_dtree/util/SparkTestUtils.class
+/decisiontree-backend/target/classes/es/albertosoto/spark_dtree/configuration/OpenApiConfig.class
+/decisiontree-backend/target/classes/es/albertosoto/spark_dtree/controller/HomeController.class
+/decisiontree-backend/target/classes/static/index.html
