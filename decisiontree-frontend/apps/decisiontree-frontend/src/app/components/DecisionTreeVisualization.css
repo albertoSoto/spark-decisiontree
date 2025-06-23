@@ -1,0 +1,109 @@
+.decision-tree-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tree-wrapper {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: auto;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+}
+
+.train-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.train-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.train-button:hover {
+  background-color: #45a049;
+}
+
+.train-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #d32f2f;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #d32f2f;
+  border-radius: 4px;
+  background-color: #ffebee;
+  width: 100%;
+  text-align: center;
+}
+
+.loading {
+  margin: 20px 0;
+  font-style: italic;
+  color: #666;
+}
+
+.legend {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+}
+
+.legend h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Custom styling for the tree nodes */
+.rd3t-node {
+  cursor: pointer;
+}
+
+.rd3t-link {
+  stroke: #555;
+  stroke-width: 1.5px;
+}
+
+/* Make the tree responsive */
+@media (max-width: 768px) {
+  .tree-wrapper {
+    height: 400px;
+  }
+}

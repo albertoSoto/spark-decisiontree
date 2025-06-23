@@ -329,10 +329,29 @@ public class SparkService {
                 if (featureNames != null && featureIndex < featureNames.length) {
                     node.put("featureName", featureNames[featureIndex]);
                     node.put("splitCondition", featureNames[featureIndex] + " <= " + threshold);
+                    
+                    // Add visualization-friendly properties
+                    node.put("name", featureNames[featureIndex]);
+                    node.put("rule", featureNames[featureIndex] + " ≤ " + String.format("%.2f", threshold));
                 } else {
                     node.put("featureName", "feature_" + featureIndex);
                     node.put("splitCondition", "feature_" + featureIndex + " <= " + threshold);
+                    
+                    // Add visualization-friendly properties
+                    node.put("name", "Feature " + featureIndex);
+                    node.put("rule", "Feature " + featureIndex + " ≤ " + String.format("%.2f", threshold));
                 }
+                
+                // Add sample count and impurity (estimated)
+                node.put("samples", "N/A");
+                node.put("impurity", "N/A");
+                
+                // Add class distribution (will be populated later if available)
+                Map<String, Object> classDistribution = new HashMap<>();
+                classDistribution.put("0", 0);
+                classDistribution.put("1", 0);
+                classDistribution.put("2", 0);
+                node.put("classDistribution", classDistribution);
                 
             } else if (line.startsWith("Predict:")) {
                 // This is a leaf node
@@ -345,6 +364,39 @@ public class SparkService {
                 
                 node.put("prediction", prediction);
                 node.put("predictionClass", String.valueOf((int)prediction));
+                
+                // Add visualization-friendly properties
+                node.put("name", "Class " + (int)prediction);
+                
+                // Map class numbers to Iris class names for better visualization
+                String className;
+                switch ((int)prediction) {
+                    case 0:
+                        className = "Setosa";
+                        break;
+                    case 1:
+                        className = "Versicolor";
+                        break;
+                    case 2:
+                        className = "Virginica";
+                        break;
+                    default:
+                        className = "Class " + (int)prediction;
+                }
+                node.put("className", className);
+                
+                // Add sample count (estimated)
+                node.put("samples", "N/A");
+                
+                // Add class distribution (100% for the predicted class)
+                Map<String, Object> classDistribution = new HashMap<>();
+                classDistribution.put("0", (int)prediction == 0 ? 1.0 : 0.0);
+                classDistribution.put("1", (int)prediction == 1 ? 1.0 : 0.0);
+                classDistribution.put("2", (int)prediction == 2 ? 1.0 : 0.0);
+                node.put("classDistribution", classDistribution);
+                
+                // Add visualization text
+                node.put("rule", "Class = " + className);
             } else if (line.startsWith("Else")) {
                 // This is an "Else" condition, we'll skip it as it's handled implicitly
                 continue;
@@ -363,9 +415,59 @@ public class SparkService {
         // The first node in the list is the root node of the tree
         if (!nodesList.isEmpty()) {
             root.put("rootNode", nodesList.get(0));
+            
+            // Add visualization-friendly format
+            root.put("visualTree", convertToVisualFormat(nodesList.get(0)));
         }
         
         return root;
+    }
+    
+    /**
+     * Convert the tree structure to a format suitable for visualization libraries
+     * @param rootNode The root node of the tree
+     * @return Map with visualization-friendly structure
+     */
+    private Map<String, Object> convertToVisualFormat(Map<String, Object> rootNode) {
+        Map<String, Object> visualNode = new HashMap<>();
+        
+        // Copy basic properties
+        visualNode.put("name", rootNode.get("name"));
+        
+        // Add rule text
+        if (rootNode.containsKey("rule")) {
+            visualNode.put("rule", rootNode.get("rule"));
+        }
+        
+        // Add class information for leaf nodes
+        if ("leaf".equals(rootNode.get("type"))) {
+            visualNode.put("className", rootNode.get("className"));
+            visualNode.put("prediction", rootNode.get("prediction"));
+        }
+        
+        // Add class distribution if available
+        if (rootNode.containsKey("classDistribution")) {
+            visualNode.put("classDistribution", rootNode.get("classDistribution"));
+        }
+        
+        // Add children recursively
+        List<Map<String, Object>> children = new ArrayList<>();
+        
+        if (rootNode.containsKey("leftChild")) {
+            Map<String, Object> leftChild = (Map<String, Object>) rootNode.get("leftChild");
+            children.add(convertToVisualFormat(leftChild));
+        }
+        
+        if (rootNode.containsKey("rightChild")) {
+            Map<String, Object> rightChild = (Map<String, Object>) rootNode.get("rightChild");
+            children.add(convertToVisualFormat(rightChild));
+        }
+        
+        if (!children.isEmpty()) {
+            visualNode.put("children", children);
+        }
+        
+        return visualNode;
     }
     
     /**
