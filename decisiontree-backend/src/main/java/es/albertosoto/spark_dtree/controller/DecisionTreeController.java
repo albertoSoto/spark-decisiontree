@@ -83,11 +83,11 @@ public class DecisionTreeController {
                     .setInputCols(featureColumns)
                     .setOutputCol("features");
 
-            // Index the label column
+            // Index the label column - don't call fit() here
             StringIndexer labelIndexer = new StringIndexer()
                     .setInputCol("species")
                     .setOutputCol("indexedLabel")
-                    .fit(data);
+                    .setHandleInvalid("skip");
 
             // Create and configure the decision tree model
             DecisionTreeClassifier dt = new DecisionTreeClassifier()
