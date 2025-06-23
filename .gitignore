@@ -26,3 +26,15 @@
 /decisiontree-frontend/node/npx.cmd
 /decisiontree-backend/target/classes/es/albertosoto/spark_dtree/controller/DecisionTreeController.class
 /decisiontree-backend/target/classes/es/albertosoto/spark_dtree/controller/HealthController.class
+/decisiontree-backend/target/classes/data/iris.csv
+/decisiontree-backend/target/classes/data/linceSampleData.csv
+/decisiontree-backend/target/classes/es/albertosoto/spark_dtree/configuration/SparkConfig.class
+/decisiontree-backend/target/classes/es/albertosoto/spark_dtree/service/SparkService.class
+/decisiontree-backend/target/surefire-reports/es.albertosoto.spark_dtree.service.SparkServiceIntegrationTest.txt
+/decisiontree-backend/target/surefire-reports/es.albertosoto.spark_dtree.service.SparkServiceTest.txt
+/decisiontree-backend/target/surefire-reports/TEST-es.albertosoto.spark_dtree.service.SparkServiceIntegrationTest.xml
+/decisiontree-backend/target/surefire-reports/TEST-es.albertosoto.spark_dtree.service.SparkServiceTest.xml
+/decisiontree-backend/target/test-classes/data/iris.csv
+/decisiontree-backend/target/test-classes/es/albertosoto/spark_dtree/service/SparkServiceIntegrationTest.class
+/decisiontree-backend/target/test-classes/es/albertosoto/spark_dtree/service/SparkServiceTest.class
+/decisiontree-backend/target/test-classes/es/albertosoto/spark_dtree/util/SparkTestUtils.class

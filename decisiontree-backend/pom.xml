@@ -58,6 +58,13 @@
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-sql_2.13</artifactId>
 		</dependency>
+		<!-- Jakarta Servlet API for tests -->
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>5.0.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
