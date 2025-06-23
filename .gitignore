@@ -24,3 +24,5 @@
 /decisiontree-frontend/node/npm.cmd
 /decisiontree-frontend/node/npx
 /decisiontree-frontend/node/npx.cmd
+/decisiontree-backend/target/classes/es/albertosoto/spark_dtree/controller/DecisionTreeController.class
+/decisiontree-backend/target/classes/es/albertosoto/spark_dtree/controller/HealthController.class
